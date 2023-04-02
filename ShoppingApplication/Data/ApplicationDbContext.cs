@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ShoppingApplication.Models;
 
 namespace ShoppingApplication.Data
 {
@@ -9,5 +10,8 @@ namespace ShoppingApplication.Data
             : base(options)
         {
         }
+        public DbSet<Article> Articles { get; set; }
+
+        public DbSet<Image> Images { get; set; }
     }
 }

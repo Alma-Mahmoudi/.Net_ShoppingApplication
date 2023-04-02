@@ -16,6 +16,34 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\C#\ShoppingApplication\ShoppingApplication
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/C\#/ShoppingApplication/ShoppingApplication/Areas/Articles/Pages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJ0aWNsZXNcUGFnZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/ShoppingApplication/ShoppingApplication/Areas/Articles/Pages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJ0aWNsZXNcUGFnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/ShoppingApplication/ShoppingApplication/Areas/Articles/Pages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJ0aWNsZXNcUGFnZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/ShoppingApplication/ShoppingApplication/Areas/Articles/Pages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJ0aWNsZXNcUGFnZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/ShoppingApplication/ShoppingApplication/Areas/Articles/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJ0aWNsZXNcUGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/ShoppingApplication/ShoppingApplication/Areas/Articles/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJ0aWNsZXNcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/ShoppingApplication/ShoppingApplication/Areas/Articles/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJ0aWNsZXNcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/C\#/ShoppingApplication/ShoppingApplication/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

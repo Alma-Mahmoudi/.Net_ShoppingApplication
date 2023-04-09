@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zyrGqfF5NyPmAy35VIX/O/ARnxA9CHczRjJvA/bfF8E=",
+  "Hash": "goEpx5YEbRsBKsYiBc+mrfCRxNWDAgSrm+mNTvu3PvY=",
   "Source": "ShoppingApplication",
   "BasePath": "_content/ShoppingApplication",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ShoppingApplication.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\articles\\images\\56cf62d2-f0b1-49f0-b5dc-c7591f1f7c54.jpg",
+      "SourceId": "ShoppingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\",
+      "BasePath": "_content/ShoppingApplication",
+      "RelativePath": "articles/images/56cf62d2-f0b1-49f0-b5dc-c7591f1f7c54.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\articles\\images\\56cf62d2-f0b1-49f0-b5dc-c7591f1f7c54.jpg"
     },
     {
       "Identity": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\css\\site.css",

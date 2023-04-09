@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ShoppingApplication.bundle.scp.css"
     },
     {
+      "Id": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\articles\\images\\56cf62d2-f0b1-49f0-b5dc-c7591f1f7c54.jpg",
+      "PackagePath": "staticwebassets\\articles\\images\\56cf62d2-f0b1-49f0-b5dc-c7591f1f7c54.jpg"
+    },
+    {
       "Id": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

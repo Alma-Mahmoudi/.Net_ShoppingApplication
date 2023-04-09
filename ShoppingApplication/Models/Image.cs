@@ -7,9 +7,9 @@ namespace ShoppingApplication.Models
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public string Path { get; set; }
+        public string? Path { get; set; }
 
         [NotMapped]
         [Display(Name="Image")]
@@ -17,7 +17,7 @@ namespace ShoppingApplication.Models
 
         public int FruitId { get; set; }
 
-        public virtual Article fruit { get; set; }
+        public virtual Article? fruit { get; set; }
 
     }
 }

@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using ShoppingApplication.Data;
 using ShoppingApplication.Models;
+using ShoppingApplication.Data;
+using ShoppingApplication.Services;
 
 namespace ShoppingApplication.Areas.Articles.Pages
 {
     public class CreateModel : PageModel
     {
-        private readonly ShoppingApplication.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext ctx;
+        private readonly ImageService imageService;
 
-        public CreateModel(ShoppingApplication.Data.ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext ctx,ImageService imageService)
         {
-            _context = context;
+           this.ctx = ctx;
+            this.imageService = imageService;
         }
 
         public IActionResult OnGet()
@@ -25,21 +23,29 @@ namespace ShoppingApplication.Areas.Articles.Pages
         }
 
         [BindProperty]
-        public Article Article { get; set; } = default!;
+        public Article Article { get; set; } = new();
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Articles == null || Article == null)
+            var emptyArticle = new Article();
+
+            if(null != Article.Image)
             {
-                return Page();
+                emptyArticle.Image = await imageService.UploadAsync(Article.Image);
             }
 
-            _context.Articles.Add(Article);
-            await _context.SaveChangesAsync();
+            if(await TryUpdateModelAsync(emptyArticle,"Article",f=>f.Name,f=>f.Description,f=> f.Price))
+            {
 
-            return RedirectToPage("./Index");
+                ctx.Articles.Add(emptyArticle);
+                await ctx.SaveChangesAsync();
+
+                return RedirectToPage("./Index");
+            }
+            return Page();
         }
+  
     }
 }

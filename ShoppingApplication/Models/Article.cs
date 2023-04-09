@@ -14,14 +14,14 @@ namespace ShoppingApplication.Models
 
         public string? Description { get; set; }
 
-        public virtual Image Image { get; set; }
+        public virtual Image? Image { get; set; }
 
-        [Column(TypeName ="decimal(3,2)")]
+        [Column(TypeName = "decimal(3,2)")]
         [DataType(DataType.Currency)]
-        [Range(1,900)]
+        [Range(1, 900)]
         [Required]
-        [Display(Name="Prix")]
-        public decimal Price { get; set; }
+        [Display(Name = "Prix")]
+        public decimal Price { get; set; } = decimal.One;
 
     }
 }

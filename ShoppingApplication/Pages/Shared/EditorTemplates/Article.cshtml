@@ -1,5 +1,9 @@
 ﻿@model ShoppingApplication.Models.Article
 
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "Article";
+}
+
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 @*<label asp-for="Article.Name" class="control-label"></label>*@

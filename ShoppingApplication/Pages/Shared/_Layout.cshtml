@@ -27,16 +27,21 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
 
-
+                      @*  <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Articles" asp-page="Index">Liste</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Articles" asp-page="Create">Créer</a>
+                        </li>*@
 
                         <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"  data-bs-toggle="dropdown">
+                             <a class="nav-link dropdown-toggle text-dark"  id="navbarDropdown" role="button"  data-bs-toggle="dropdown">
                               Articles
                               </a>
                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                  @*<li class="dropdown-item" href="#">Liste</li>*@
-                                 <li class="dropdown-item" asp-area="Articles" asp-page="Index">Liste</li>
-                                 <li class="dropdown-item" asp-area="Articles" asp-page="Create">Créer</li>
+                                 <li class="dropdown-item"> <a class="nav-link text-dark" asp-area="Articles" asp-page="Index">Liste</a></li>
+                                 <li class="dropdown-item"><a class="nav-link text-dark" asp-area="Articles" asp-page="Create">Créer</a></li>
                              </ul>
                         </li>
 

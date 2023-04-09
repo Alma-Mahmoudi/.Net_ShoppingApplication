@@ -19,6 +19,10 @@
 
             <div class="form-group">
                 <label asp-for="Image.File" class="control-label"></label>
+                 @if (null != Model.Image)
+                 {
+                          <span>(<a target="_blank" src="@Url.Content(Model.Image.Path)" width="128" height="128">@Model.Image.Name</a>)</span>
+                 }   
                 <input type="file" asp-for="Image.File" class="form-control" />
                 <span asp-validation-for="Image.File" class="text-danger"></span>
             </div>

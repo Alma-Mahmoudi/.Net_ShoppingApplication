@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "goEpx5YEbRsBKsYiBc+mrfCRxNWDAgSrm+mNTvu3PvY=",
+  "Hash": "7ejj1BZ4pepy347/6NSf8uv4woCFxFhRpRBghsMZROU=",
   "Source": "ShoppingApplication",
   "BasePath": "_content/ShoppingApplication",
   "Mode": "Default",
@@ -1086,6 +1086,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\articles\\images\\56cf62d2-f0b1-49f0-b5dc-c7591f1f7c54.jpg"
+    },
+    {
+      "Identity": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\articles\\images\\6033d37d-f4d2-47c6-b90c-b93fb6f56790.jpg",
+      "SourceId": "ShoppingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\",
+      "BasePath": "_content/ShoppingApplication",
+      "RelativePath": "articles/images/6033d37d-f4d2-47c6-b90c-b93fb6f56790.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\articles\\images\\6033d37d-f4d2-47c6-b90c-b93fb6f56790.jpg"
+    },
+    {
+      "Identity": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\articles\\images\\e3b11223-024e-423b-8ac3-1c7e95d6fb5d.jpg",
+      "SourceId": "ShoppingApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\",
+      "BasePath": "_content/ShoppingApplication",
+      "RelativePath": "articles/images/e3b11223-024e-423b-8ac3-1c7e95d6fb5d.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\articles\\images\\e3b11223-024e-423b-8ac3-1c7e95d6fb5d.jpg"
     },
     {
       "Identity": "D:\\C#\\ShoppingApplication\\ShoppingApplication\\wwwroot\\css\\site.css",

@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-ShoppingApplication-b1407620-2109-4176-8ff2-17d003952965</UserSecretsId>
   </PropertyGroup>

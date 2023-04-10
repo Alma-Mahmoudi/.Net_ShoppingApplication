@@ -7,29 +7,36 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ShoppingApplication.Data;
 using ShoppingApplication.Models;
+using ShoppingApplication.Areas;
+using ShoppingApplication.Services;
 
 namespace ShoppingApplication.Areas.Articles.Pages
 {
     public class DeleteModel : PageModel
     {
-        private readonly ShoppingApplication.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext ctx;
+        private ImageService imageService;
 
-        public DeleteModel(ShoppingApplication.Data.ApplicationDbContext context)
+        public DeleteModel(ApplicationDbContext ctx,ImageService imageService)
         {
-            _context = context;
+            this.ctx = ctx;
+            this.imageService = imageService;
         }
 
         [BindProperty]
-      public Article Article { get; set; } = default!;
+        public Article Article { get; set; }
+        public string ErrorMessage { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, bool? hasErrorMessage = false)
         {
-            if (id == null || _context.Articles == null)
+            if (id == null || ctx.Articles == null)
             {
                 return NotFound();
             }
 
-            var article = await _context.Articles.FirstOrDefaultAsync(m => m.Id == id);
+            var article = await ctx.Articles
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (article == null)
             {
@@ -39,25 +46,56 @@ namespace ShoppingApplication.Areas.Articles.Pages
             {
                 Article = article;
             }
+
+            if (hasErrorMessage.GetValueOrDefault())
+            {
+                ErrorMessage = $"Une erreur est survenue lors la tentative de suppression de {Article.Name} ({Article.Id})";
+            }
+
+
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Articles == null)
+            if (id == null || ctx.Articles == null)
             {
                 return NotFound();
             }
-            var article = await _context.Articles.FindAsync(id);
+
+            var articleToDelete = await ctx.Articles
+                .Include(f => f.Image)
+                .FirstOrDefaultAsync(f=>f.Id == id);
+
+            if (articleToDelete == null)
+            {
+                return NotFound();
+            }
+         
+
+            try
+            {
+                imageService.DeleteUploadedFile(articleToDelete.Image);
+                ctx.Articles.Remove(articleToDelete);
+                await ctx.SaveChangesAsync();
+
+                return RedirectToPage("./Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("./Delete",new {id,hasErrorMessage =true});
+            }
+
+            /*var article = await ctx.Articles.FindAsync(id);
 
             if (article != null)
             {
                 Article = article;
-                _context.Articles.Remove(Article);
-                await _context.SaveChangesAsync();
+                ctx.Articles.Remove(Article);
+                await ctx.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index");*/
         }
     }
 }

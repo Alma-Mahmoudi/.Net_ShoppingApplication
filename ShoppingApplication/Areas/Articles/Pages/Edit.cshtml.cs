@@ -8,16 +8,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ShoppingApplication.Data;
 using ShoppingApplication.Models;
+using ShoppingApplication.Data;
+using ShoppingApplication.Services;
 
 namespace ShoppingApplication.Areas.Articles.Pages
 {
     public class EditModel : PageModel
     {
-        private readonly ShoppingApplication.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext ctx;
+        private readonly ImageService imageService;
 
-        public EditModel(ShoppingApplication.Data.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext ctx,ImageService imageService)
         {
-            _context = context;
+            this.ctx = ctx;
+            this.imageService = imageService;
         }
 
         [BindProperty]
@@ -25,53 +29,63 @@ namespace ShoppingApplication.Areas.Articles.Pages
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Articles == null)
+            if (id == null || ctx.Articles == null)
             {
                 return NotFound();
             }
 
-            var article =  await _context.Articles.FirstOrDefaultAsync(m => m.Id == id);
+            var article =  await ctx.Articles
+                .Include(f => f.Image)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.Id == id);
+            
             if (article == null)
-            {
                 return NotFound();
-            }
+            
             Article = article;
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var articleToUpdate = await ctx.Articles
+                .Include(f => f.Image)
+                .FirstOrDefaultAsync(f => f.Id == id);
+
+            if(Article == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Article).State = EntityState.Modified;
+            var uploadedImage = Article.Image;
+            if(null != uploadedImage)
+            {
+                uploadedImage = await imageService.UploadAsync(uploadedImage);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ArticleExists(Article.Id))
+                if (articleToUpdate.Image != null)
                 {
-                    return NotFound();
+                    imageService.DeleteUploadedFile(articleToUpdate.Image);
+                    articleToUpdate.Image.Name = uploadedImage.Name;
+                    articleToUpdate.Image.Path = uploadedImage.Path;
                 }
                 else
-                {
-                    throw;
-                }
+                    articleToUpdate.Image = uploadedImage;
+            }
+            if (await TryUpdateModelAsync(articleToUpdate, "Article", f => f.Name, f => f.Description, f => f.Price))
+            {
+                await ctx.SaveChangesAsync();
+
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
 
         private bool ArticleExists(int id)
         {
-          return (_context.Articles?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (ctx.Articles?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
